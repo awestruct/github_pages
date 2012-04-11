@@ -1,5 +1,6 @@
 profiles:
   production:
+    base_url: http://awestruct.github.com/github_pages
     deploy:
       host: github_pages
 
