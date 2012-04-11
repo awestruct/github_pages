@@ -33,36 +33,6 @@ layout: base
 
     .step
       %h2 
-        Create the gh-pages branch
-      %p
-        Make sure you have a 
-        %code gh-pages
-        root branch.  This branch will be your generated site. You won't need
-        to be working in this branch, but it needs to exist for github to serve
-        your pages.  These instructions are taken loosely from the github pages
-        %a{:href=>'http://help.github.com/pages/'} help site.
-      %p 
-        Create the 
-        %code gh-pages 
-        branch.
-        %pre
-          $ git symbolic-ref HEAD refs/heads/gh-pages
-      %p
-        Remove the existing index and get rid of working files.
-        %pre
-          :preserve
-            $ rm .git/index
-            $ git clean -fdx
-      %p
-        Add some content to the branch, commit it, then switch back to master.
-        %pre
-          :preserve
-            $ touch README 
-            $ git commit -a -m "Initial commit"
-            $ git checkout master
-
-    .step
-      %h2 
         Add a deployment profile
       %p
         Open up your 
@@ -86,10 +56,9 @@ layout: base
                   host: github_pages 
 
     .step
-      %h2 Deploy!
+      %h2 Deploy
       %p 
-        Congratulations, you're done with setup. You don't have to do any of
-        that again. To deploy just type
+        Congratulations, you're done!  To deploy just type
         %code awestruct -P production --deploy
         and your site will be generated, added to the 
         %code gh-pages
