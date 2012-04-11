@@ -67,33 +67,6 @@
           </div>
           <div class='step'>
             <h2>
-              Create the gh-pages branch
-            </h2>
-            <p>
-              Make sure you have a
-              <code>gh-pages</code>
-              root branch.  This branch will be your generated site. You won't need
-              to be working in this branch, but it needs to exist for github to serve
-              your pages.  These instructions are taken loosely from the github pages
-              <a href='http://help.github.com/pages/'>help site.</a>
-            </p>
-            <p>
-              Create the
-              <code>gh-pages</code>
-              branch.
-              <pre>$ git symbolic-ref HEAD refs/heads/gh-pages</pre>
-            </p>
-            <p>
-              Remove the existing index and get rid of working files.
-              <pre>$ rm .git/index&#x000A;$ git clean -fdx</pre>
-            </p>
-            <p>
-              Add some content to the branch, commit it, then switch back to master.
-              <pre>$ touch README &#x000A;$ git commit -a -m "Initial commit"&#x000A;$ git checkout master&#x000A;</pre>
-            </p>
-          </div>
-          <div class='step'>
-            <h2>
               Add a deployment profile
             </h2>
             <p>
@@ -113,10 +86,9 @@
             </p>
           </div>
           <div class='step'>
-            <h2>Deploy!</h2>
+            <h2>Deploy</h2>
             <p>
-              Congratulations, you're done with setup. You don't have to do any of
-              that again. To deploy just type
+              Congratulations, you're done!  To deploy just type
               <code>awestruct -P production --deploy</code>
               and your site will be generated, added to the
               <code>gh-pages</code>
