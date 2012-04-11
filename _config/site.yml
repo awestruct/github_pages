@@ -1,0 +1,5 @@
+profiles:
+  production:
+    deploy:
+      host: github_pages
+
