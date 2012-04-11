@@ -1,27 +1,119 @@
 ---
 layout: base
 ---
-.hero-unit
-  %h1 You're awestruct!
-  %p Your site is all setup to use Twitter Bootstrap with Awestruct.
-  %p
-    %a.btn.btn-primary.btn-large{ :href=>'http://awestruct.org' }
-      %i.icon-info-sign.icon-white
-      Learn more &raquo;
 .row
+  .span8
+    .page-header 
+      %h1 
+        awestruct on github:pages
+        %small a brief howto
+
+    .step
+      %h2 Install awestruct &amp; create a new site
+      %p 
+        If you've already got an awestruct site that you want to publish, skip
+        on ahead.  If you haven't installed awestruct yet, do that. It's just a
+        gem install. Then create a new awestruct site.
+
+        %pre 
+          :preserve
+            $ gem install awestruct
+            $ awestruct -i -f bootstrap # Use the Twitter Bootstrap template
+
+        Make whatever changes you want to your new website. Init and commit
+        your git repo and push to github.
+
+    .step
+      %h2 
+        Create the gh-pages branch
+      %p
+        Make sure you have a 
+        %code gh-pages
+        root branch.  This branch will be your generated site. You won't need
+        to be working in this branch, but it needs to exist for github to serve
+        your pages.  These instructions are taken loosely from the github pages
+        %a{:href=>'http://help.github.com/pages/'} help site.
+      %p 
+        Create the 
+        %code gh-pages 
+        branch.
+        %pre
+          $ git symbolic-ref HEAD refs/heads/gh-pages
+      %p
+        Remove the existing index and get rid of working files.
+        %pre
+          :preserve
+            $ rm .git/index
+            $ git clean -fdx
+      %p
+        Add some content to the branch, commit it, then switch back to master.
+        %pre
+          :preserve
+            $ touch README 
+            $ git commit -a -m "Initial commit"
+            $ git checkout master
+
+    .step
+      %h2 
+        Add a deployment profile
+      %p
+        Open up your 
+        %code _config/site.yml 
+        file and add a deployment profile.
+        Set
+        %code host
+        to
+        %code github_pages
+        and set the
+        %code base_url
+        to the github pages URL. This can be your own domain if you
+        set it up correctly in github. In our example, it's just the
+        default domain that github provides.  
+        %pre
+          :preserve
+            profiles: 
+              production: 
+                base_url: http://awestruct.github.com/github_pages 
+                deploy: 
+                  host: github_pages 
+
+    .step
+      %h2 Deploy!
+      %p Congratulations, you're done with setup. You don't have to do any of
+      that again. To deploy just type
+      %code awestruct -P production --deploy
+
+
   .span4
-    %h2 About
-    %p Awestruct is a framework for creating static HTML sites. It's inspired by the awesome Jekyll utility in the same genre.
-    %p Additionally, Awestruct integrates technologies such as Compass, Markdown and Haml.
-    %p
-      %a.btn{ :href=>'http://awestruct.org' } View details &raquo; 
-  .span4
-    %h2 Goal
-    %p The goal of Awestruct is to make it trivially easy to bake out non-trivial static websites. In addition to providing template-driven site creation (using Haml), Awestruct provides facilities for easily priming the site creation with additional non-page data.
-    %p
-      %a.btn{ :href=>'http://awestruct.org' } View details &raquo; 
-  .span4
-    %h2 Concept
-    %p The core concept of Awestruct is that of structures, specifically Ruby OpenStruct structures. The struct aspect allows arbitrary, schema-less data to be associated with a specific page or the entire site.
-    %p
-      %a.btn{ :href=>'http://awestruct.org' } View details &raquo; 
+    .hero-unit
+      %p 
+        This site is created with 
+        %a{:href=>'http://awestruct.org'} awestruct 
+        &amp; published on GitHub
+        %a{:href=>'http://pages.github.com/'} pages.
+      %p
+        How cool is that?
+      %p
+        %a.btn.btn-primary.btn-large{ :href=>'http://awestruct.org' } Learn more &raquo; 
+
+    %section
+      %h2 About
+      %p 
+        Awestruct is a framework for creating static HTML sites. It's inspired
+        by the awesome Jekyll utility in the same genre. 
+
+    %section
+      %h2 Goal
+      %p 
+        The goal of Awestruct is to make it trivially easy to bake out
+        non-trivial static websites. In addition to providing template-driven
+        site creation (using Haml), Awestruct provides facilities for easily
+        priming the site creation with additional non-page data. 
+
+    %section
+      %h2 Concept
+      %p 
+        The core concept of Awestruct is that of structures, specifically Ruby
+        OpenStruct structures. The struct aspect allows arbitrary, schema-less
+        data to be associated with a specific page or the entire site.  
+
