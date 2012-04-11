@@ -79,16 +79,19 @@ layout: base
 
     .step
       %h2 Deploy!
-      %p Congratulations, you're done with setup. You don't have to do any of
-      that again. To deploy just type
-      %code awestruct -P production --deploy
-      and your site will be generated, added to the 
-      %code gh-pages
-      branch, committed, and pushed. 
+      %p 
+        Congratulations, you're done with setup. You don't have to do any of
+        that again. To deploy just type
+        %code awestruct -P production --deploy
+        and your site will be generated, added to the 
+        %code gh-pages
+        branch, committed, and pushed. 
       %pre
         :preserve
-
-
+          $ awestruct -P production --deploy
+          deploying to 'production'
+          publishing to github pages
+          deploy finished
   .span4
     .hero-unit
       %p 
